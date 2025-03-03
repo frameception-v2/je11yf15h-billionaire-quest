@@ -67,25 +67,13 @@ export function POST() {
       text: "What is the capital of France?",
       options: ["London", "Paris", "Berlin", "Madrid"],
       correctIndex: 1
-          <div className="grid grid-cols-2 gap-4">
-            {question.options.map((option, index) => (
-              <button 
-                key={index}
-                className="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded"
-                onclick={`answer(${index})`}
-              >
-                {String.fromCharCode(65 + index)}. {option}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    ),
-    buttons: question.options.map((_, index) => ({
-      label: `${String.fromCharCode(65 + index)}`,
-      action: "post",
-      target: `/api/answer?index=${index}`
-    }))
+    },
+    buttons: [
+      { label: "A", action: "post", target: "/api/answer?index=0" },
+      { label: "B", action: "post", target: "/api/answer?index=1" },
+      { label: "C", action: "post", target: "/api/answer?index=2" },
+      { label: "D", action: "post", target: "/api/answer?index=3" }
+    ]
   }), {
     headers: {
       "Content-Type": "application/json"

@@ -16,8 +16,13 @@ export async function POST(request: Request) {
     // Get game state from Redis
     const gameState = JSON.parse(await redis.get(sessionId));
     
-    // Hardcoded correct answer for first question
-    if (answerIndex === 1) {
+    // Check if answer matches current question's correct index
+    const currentQuestion = questions.find(q => q.level === gameState.level);
+    if (!currentQuestion) {
+      return new NextResponse('Question not found', { status: 404 });
+    }
+
+    if (answerIndex === currentQuestion.correctIndex) {
       // Update game state
       gameState.level++;
       await redis.set(sessionId, JSON.stringify(gameState));
