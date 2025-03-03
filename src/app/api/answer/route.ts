@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { PROJECT_TITLE } from '~/lib/constants';
+import { questions } from '~/server/data/questions';
 
 // Mock Redis client - replace with real implementation
 const redis = {
