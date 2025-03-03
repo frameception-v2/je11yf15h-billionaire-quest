@@ -34,7 +34,7 @@ function WelcomeFrame() {
       <CardContent className="flex justify-center">
         <button 
           className="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors"
-          onClick={() => fetch('/api/start', { method: 'POST' })}
+          onClick={() => fetch('/api/question/1', { method: 'POST' })}
         >
           Start Game
         </button>
@@ -94,7 +94,7 @@ function GameOverFrame() {
       <CardContent className="flex justify-center">
         <button 
           className="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors"
-          onClick={() => fetch('/api/start', { method: 'POST' })}
+          onClick={() => fetch('/api/question/1', { method: 'POST' })}
         >
           Try Again
         </button>
