@@ -1,4 +1,5 @@
 import { PROJECT_TITLE } from "~/lib/constants";
+import React from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -10,8 +11,38 @@ export function POST() {
     correctIndex: 1 // Paris is correct
   };
 
+  // Use React.createElement instead of JSX
+  const frame = React.createElement(
+    "div",
+    { className: "w-full p-4" },
+    React.createElement(
+      "h1",
+      { className: "text-2xl font-bold mb-4" },
+      PROJECT_TITLE
+    ),
+    React.createElement(
+      "div",
+      { className: "bg-white rounded-lg shadow-lg p-6" },
+      React.createElement("p", { className: "text-lg mb-4" }, question.text),
+      React.createElement(
+        "div",
+        { className: "grid grid-cols-2 gap-4" },
+        question.options.map((option, index) =>
+          React.createElement(
+            "button",
+            {
+              key: index,
+              className: "bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded"
+            },
+            `${String.fromCharCode(65 + index)}. ${option}`
+          )
+        )
+      )
+    )
+  );
+
   return new Response(JSON.stringify({
-    frame: (
+    frame: frame,
       <div className="w-full p-4">
         <h1 className="text-2xl font-bold mb-4">{PROJECT_TITLE}</h1>
         <div className="bg-white rounded-lg shadow-lg p-6">

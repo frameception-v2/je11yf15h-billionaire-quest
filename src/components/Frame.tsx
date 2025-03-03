@@ -171,7 +171,8 @@ export default function Frame() {
         <h1 className="text-2xl font-bold text-center mb-4 text-gray-700 dark:text-gray-300">
           {PROJECT_TITLE}
         </h1>
-        <WelcomeFrame />
+        {/* Temporary toggle for testing */}
+        {Math.random() > 0.5 ? <WelcomeFrame /> : <QuestionFrame />}
       </div>
     </div>
   );
