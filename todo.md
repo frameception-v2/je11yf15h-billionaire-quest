@@ -56,8 +56,8 @@
   UI Component: components/frames/GameOverFrame.jsx with restart option  
   Completion: Correct answers redirect to next level, wrong answers show game over
 
-- [ ] Task 4: Implement dynamic question progression  
-  File: src/server/data/questions.js  
+- [x] Task 4: Implement dynamic question progression  
+  File: src/server/data/questions.ts  
   Action: Create  
   Description: Array of 15 questions with increasing difficulty and prize values.  
   API: GET /api/question/:level  

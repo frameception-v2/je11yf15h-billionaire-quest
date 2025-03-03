@@ -43,17 +43,20 @@ function WelcomeFrame() {
   );
 }
 
-function QuestionFrame() {
+function QuestionFrame({ question }: { question: Question }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl">Question 1</CardTitle>
+        <CardTitle className="text-xl">Question {question.level}</CardTitle>
+        <CardDescription className="text-sm">
+          Prize: ${question.prize.toLocaleString()}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <p className="text-lg">What is the capital of France?</p>
+          <p className="text-lg">{question.text}</p>
           <div className="grid grid-cols-2 gap-3">
-            {["London", "Paris", "Berlin", "Madrid"].map((option, index) => (
+            {question.options.map((option, index) => (
               <button
                 key={index}
                 className="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded text-sm"
@@ -189,6 +192,14 @@ export default function Frame() {
     return <div>Loading...</div>;
   }
 
+  const [currentLevel, setCurrentLevel] = useState(1);
+  // Temporary mock questions - replace with API data later
+  const mockQuestions = [
+    { level: 1, prize: 100, text: "What is the capital of France?", options: ["London", "Paris", "Berlin", "Madrid"], correctIndex: 1 },
+    { level: 2, prize: 200, text: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], correctIndex: 1 },
+    { level: 3, prize: 400, text: "Who painted the Mona Lisa?", options: ["Van Gogh", "Picasso", "Da Vinci", "Rembrandt"], correctIndex: 2 }
+  ];
+
   return (
     <div
       style={{
@@ -202,8 +213,7 @@ export default function Frame() {
         <h1 className="text-2xl font-bold text-center mb-4 text-gray-700 dark:text-gray-300">
           {PROJECT_TITLE}
         </h1>
-        {/* Temporary toggle for testing */}
-        {Math.random() > 0.5 ? <WelcomeFrame /> : <QuestionFrame />}
+        <QuestionFrame question={mockQuestions.find(q => q.level === currentLevel)!} />
       </div>
     </div>
   );
