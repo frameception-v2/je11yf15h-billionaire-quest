@@ -22,17 +22,22 @@ import { createStore } from "mipd";
 import { Label } from "~/components/ui/label";
 import { PROJECT_TITLE } from "~/lib/constants";
 
-function ExampleCard() {
+function WelcomeFrame() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Welcome to the Frame Template</CardTitle>
-        <CardDescription>
-          This is an example card that you can customize or remove
+        <CardTitle className="text-2xl">Ready to become a billionaire?</CardTitle>
+        <CardDescription className="text-lg">
+          Answer 15 questions correctly to win your fortune!
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <Label>Place content in a Card here.</Label>
+      <CardContent className="flex justify-center">
+        <button 
+          className="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors"
+          onClick={() => fetch('/api/start', { method: 'POST' })}
+        >
+          Start Game
+        </button>
       </CardContent>
     </Card>
   );
@@ -140,7 +145,7 @@ export default function Frame() {
         <h1 className="text-2xl font-bold text-center mb-4 text-gray-700 dark:text-gray-300">
           {PROJECT_TITLE}
         </h1>
-        <ExampleCard />
+        <WelcomeFrame />
       </div>
     </div>
   );

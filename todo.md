@@ -1,4 +1,4 @@
-- [ ] Task 1: Create game initialization endpoint and welcome UI  
+- [x] Task 1: Create game initialization endpoint and welcome UI  
   File: src/server/routes/api/start.js  
   Action: Create  
   Description: Implement POST endpoint that creates GameState (level=0, totalPrize=0) in Redis with 1-hour TTL. Return Frame v2 component with start button.  
