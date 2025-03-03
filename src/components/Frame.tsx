@@ -108,8 +108,8 @@ export default function Frame() {
   const [context, setContext] = useState<Context.FrameContext>();
 
   const [added, setAdded] = useState(false);
-
   const [addFrameResult, setAddFrameResult] = useState("");
+  const [currentLevel, setCurrentLevel] = useState(1);
 
   const addFrame = useCallback(async () => {
     try {
@@ -191,8 +191,6 @@ export default function Frame() {
   if (!isSDKLoaded) {
     return <div>Loading...</div>;
   }
-
-  const [currentLevel, setCurrentLevel] = useState(1);
   // Temporary mock questions - replace with API data later
   const mockQuestions = [
     { level: 1, prize: 100, text: "What is the capital of France?", options: ["London", "Paris", "Berlin", "Madrid"], correctIndex: 1 },
