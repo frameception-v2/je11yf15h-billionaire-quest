@@ -79,6 +79,27 @@ function QuestionFrame() {
   );
 }
 
+function GameOverFrame() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-2xl">Game Over!</CardTitle>
+        <CardDescription className="text-lg">
+          Better luck next time!
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex justify-center">
+        <button 
+          className="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors"
+          onClick={() => fetch('/api/start', { method: 'POST' })}
+        >
+          Try Again
+        </button>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function Frame() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
   const [context, setContext] = useState<Context.FrameContext>();
