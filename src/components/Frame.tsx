@@ -43,6 +43,32 @@ function WelcomeFrame() {
   );
 }
 
+function QuestionFrame() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Question 1</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <p className="text-lg">What is the capital of France?</p>
+          <div className="grid grid-cols-2 gap-3">
+            {["London", "Paris", "Berlin", "Madrid"].map((option, index) => (
+              <button
+                key={index}
+                className="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded text-sm"
+                onClick={() => fetch(`/api/answer?index=${index}`, { method: 'POST' })}
+              >
+                {String.fromCharCode(65 + index)}. {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function Frame() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
   const [context, setContext] = useState<Context.FrameContext>();

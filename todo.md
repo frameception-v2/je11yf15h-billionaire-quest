@@ -17,7 +17,7 @@
   UI Component: components/frames/WelcomeFrame.jsx showing "Ready to become a billionaire?"  
   Completion: Session ID appears in Redis and start button triggers /api/question/1
 
-- [ ] Task 2: Implement question 1 endpoint and basic UI  
+- [x] Task 2: Implement question 1 endpoint and basic UI  
   File: src/server/routes/api/question/1.js  
   Action: Create  
   Description: Hardcoded POST endpoint serving question data with 4 answer options.  
