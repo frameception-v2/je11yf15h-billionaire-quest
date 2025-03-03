@@ -33,7 +33,7 @@
   UI Component: components/frames/QuestionFrame.jsx rendering question text and answer buttons  
   Completion: Start button click displays question with A-D options
 
-- [ ] Task 3: Build answer verification system  
+- [x] Task 3: Build answer verification system  
   File: src/server/routes/api/answer.js  
   Action: Create  
   Description: POST endpoint comparing submitted answer against hardcoded correctIndex.  

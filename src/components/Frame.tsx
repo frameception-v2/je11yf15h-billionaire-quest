@@ -57,7 +57,17 @@ function QuestionFrame() {
               <button
                 key={index}
                 className="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded text-sm"
-                onClick={() => fetch(`/api/answer?index=${index}`, { method: 'POST' })}
+                onClick={() => {
+                  const formData = new URLSearchParams();
+                  formData.append('index', index.toString());
+                  fetch('/api/answer', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                  });
+                }}
               >
                 {String.fromCharCode(65 + index)}. {option}
               </button>
