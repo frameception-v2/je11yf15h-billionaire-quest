@@ -71,7 +71,7 @@
   UI Component: components/frames/ProgressBar.jsx showing current level  
   Completion: Users can progress through all 15 levels with accurate prize display
 
-- [ ] Task 5: Add HMAC state validation  
+- [x] Task 5: Add HMAC state validation  
   File: src/server/middleware/hmac.js  
   Action: Create  
   Description: Middleware validating HMAC signatures in all requests.  
